@@ -156,9 +156,12 @@ footer img:hover{
         justify-content: center;
         align-content: center;
         padding: 5% 10%;
-    }
+}
+.skill .skill-head{
+    padding-bottom: 12px;
+}
 .skill p{
-    background-color:#084071;
+    background-color:#2266a1;
     font-size: 30px;
     text-align: center;
     border-radius: 10px;

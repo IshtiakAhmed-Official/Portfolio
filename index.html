@@ -1,54 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ishtiak Ahmed | Software Engineer</title>
+  <meta name="description" content="Ishtiak Ahmed - Software Engineer portfolio showcasing projects, skills, and achievements.">
+  <link rel="stylesheet" href="src/output.css">
+  <script>if (localStorage.theme !== 'light') document.documentElement.classList.add('dark');</script>
 </head>
-<body>
-    <header>
-        <nav>
-            <!-- Navigation Bar -->
-            <div class="logo"><a href="index.html">Ishtiak Ahmed</a></div>
-            <div class="Navigation-List">
-                <a href="index.html"><b>Home</b></a>
-                <a href="skills.html"><b>Skills</b></a>
-            </div>
-            <div class="contacts">
-            <a href="contact.html"><b>Contact</b></a>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <div class="name-tag-image">
-            <div class="name-tag">
-                <span class="name"><p><b>Hi, I’m <span style="color: #0b5394;">Ishtiak Ahmed</span></b></p></span>
-                <span class="tagline"><p><b>C++ programmer. Game Developer. Fast Learner. Complex Thinker with Simple Taste.</b></p></span>
-            </div>
-            <div class="Profile-image">
-                <img src="Images/Ishtiak.png" alt="Profile pic" style="width: 300px;">
-            </div>
+<body class="bg-slate-50 text-slate-900 dark:bg-dark dark:text-slate-200 transition-colors duration-300 overflow-x-hidden font-sans">
+
+  <!-- Background effect bubbles -->
+  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute top-10 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl opacity-70 animate-blob dark:mix-blend-screen"></div>
+    <div class="absolute bottom-10 right-1/4 w-72 h-72 bg-secondary/20 rounded-full blur-3xl opacity-70 animate-blob dark:mix-blend-screen" style="animation-delay:2s"></div>
+  </div>
+
+<!-- mouse blob -->
+<div id="blob" class="fixed top-0 left-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl pointer-events-none z-50"></div>
+
+  <!-- Nav -->
+  <nav class="fixed w-full z-50 glass">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold tracking-tighter">
+        <span class="text-primary">&lt;</span> Ishtiak Ahmed <span class="text-primary">/&gt;</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about"        class="text-sm font-medium hover:text-primary transition-colors">About</a>
+        <a href="#skills"       class="text-sm font-medium hover:text-primary transition-colors">Skills</a>
+        <a href="#projects"     class="text-sm font-medium hover:text-primary transition-colors">Projects</a>
+        <a href="#achievements" class="text-sm font-medium hover:text-primary transition-colors">Achievements</a>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-dark/95 backdrop-blur-md flex flex-col justify-center items-center gap-6 text-2xl font-medium">
+    <a href="#about"        class="mobile-link hover:text-primary">About</a>
+    <a href="#skills"       class="mobile-link hover:text-primary">Skills</a>
+    <a href="#projects"     class="mobile-link hover:text-primary">Projects</a>
+    <a href="#achievements" class="mobile-link hover:text-primary">Achievements</a>
+  </div>
+
+  <!-- Info -->
+  <section id="home" class="min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 reveal">
+        <div class="inline-block px-4 py-1 rounded-full border border-primary/30 glass text-sm font-medium text-primary">SOFTWARE ENGINEER</div>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          Crafting <span class="text-gradient">Digital</span><br>Experiences.
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg">I build web applications with a focus on design, clean code, and fluid user interactions.</p>
+        <div class="flex gap-4 pt-4">
+          <a href="#projects" class="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-indigo-600 transition-colors">View Work</a>
+          <a href="#contact"  class="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 hover:border-primary transition-colors glass">Contact Me</a>
         </div>
-        <div class="About-me">
-            <span class="heading">
-                <p><b>🧑‍💻About Me</b></p>
-            </span>
-            <span class="text">
-                <p><br><b>I’m a developer.</b><br>I love <b>building games—and playing them </b> as much. Most of my work is in <b>C++</b>, but I’m always <b>exploring new tools and ideas</b>. Whenever I learn something new, I try to <b>apply it in a project</b> right away. That’s how I make it stick. I think in layers —<b>simple and complex</b> at the same time—and I <b>enjoy untangling tough problems</b> until they make sense. <b>Fast learner, sharp thinker, hands-on builder</b>. In my free time? You’ll probably find me playing <b>chess</b> or buried in a <b>book</b>. I like to keep my <b>mind active</b>, even when I’m not writing code.</p>
-            </span>
-
+      </div>
+      <div class="flex justify-center reveal">
+        <div class="w-72 h-72 md:w-96 md:h-96 relative animate-float">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary blur-2xl opacity-30"></div>
+          <div class="absolute inset-2 rounded-full glass overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
+            <span class="text-slate-400 font-medium"><img src="Ishtiak Ahmed.png" alt=""></span>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-                
-    </main>
+  <!-- About -->
+  <section id="about" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto glass rounded-3xl p-8 md:p-12 reveal">
+        <h2 class="text-3xl font-bold mb-6">Background & <span class="text-gradient">Philosophy</span></h2>
+        <div class="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
+          <p>I am a passionate software engineer with a commitment to exploring new tools and applying my knowledge to enhance my skills. My problem solving approach involves breaking down complex issues into manageable parts.</p>
+          <p>In my free time, I enjoy chess and reading. I prioritize writing clean, modular, and scalable code, reflecting my dedication to quality and efficiency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <pre><b>🔗Connect With Me <b></pre>
-        <a href="https://bd.linkedin.com/in/ishtiakahmed2797" target="_blank"><img src="https://ssl.gstatic.com/atari/images/sociallinks/linkedin_white_36dp.png" alt="LinkedIn_icon" style="width: 30px;"></a>
-        <a href="https://github.com/IshtiakAhmed-Official" target="_blank"><img src="https://ssl.gstatic.com/atari/images/sociallinks/github_white_36dp.png" alt="GitHub_Logo" style="width: 30px;"></a>
-        <a href="mailto:ishtiakahmed2797@gmail.com" target="_blank"><img src="https://ssl.gstatic.com/atari/images/sociallinks/email_white_36dp.png" alt="Email-icon" style="height: 30px;"></a>
-    </footer>
+  <!-- Skills -->
+  <section id="skills" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center reveal">Technical <span class="text-gradient">Proficiencies</span></h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-primary">JavaScript</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-secondary">C/C++</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-emerald-500">SQL/NoSQL</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-yellow-600">Python</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-purple-500">Blender</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-accent">React</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-blue-500">Node.js</h4></div>
+        <div class="glass p-6 rounded-2xl text-center reveal hover:-translate-y-1 transition-transform"><h4 class="font-bold text-cyan-500">Tailwind CSS</h4></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center reveal">Creative <span class="text-gradient">Showcase</span></h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Project 1: Quoter -->
+        <div class="glass rounded-3xl overflow-hidden reveal">
+          <div class="h-56 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+            <span class="text-slate-400"> <a href="https://ishtiakahmed-official.github.io/Quoter/" target="_blank"><img src="Project_Photo/Quoter.png" alt="Quoter Project"></a></span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Quoter</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm text-justify">A simple React app that fetches a random quote from dummyjson.com and displays it with the author. Users can get a new quote by clicking a button.</p>
+            <div class="flex gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">React</span>
+              <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">Tailwind CSS</span>
+              <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2: Food Cards -->
+        <div class="glass rounded-3xl overflow-hidden reveal">
+          <div class="h-56 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+            <span class="text-slate-400"> <a href="https://ishtiakahmed-official.github.io/Food-Cards/" target="_blank"><img src="Project_Photo/Food_Card.jpg" alt="Food Cards Project"></a></span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Food Cards</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm text-justify">Get food lists based on nationality using TheMealDB API. Search by country (e.g., American, Canadian, Italian) and view meals with images in a neat card layout.</p>
+            <div class="flex gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">HTML</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">CSS</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3: OLED Dot To Code -->
+        <div class="glass rounded-3xl overflow-hidden reveal">
+          <div class="h-56 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+            <span class="text-slate-400"> <a href="https://ishtiakahmed-official.github.io/OLED-Dot-To-Code/" target="_blank"><img src="Project_Photo/OLED_Dot_To_Code.jpg" alt="OLED Dot To Code Project"></a></span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">OLED Dot To Code</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm text-justify">Convert pixel art to hex or binary code for OLED displays with undo/redo and image import.</p>
+            <div class="flex gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">HTML</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">CSS</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4: Image Converter -->
+        <div class="glass rounded-3xl overflow-hidden reveal">
+          <div class="h-56 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+            <span class="text-slate-400"> <a href="https://ishtiakahmed-official.github.io/Image-Converter/" target="_blank"><img src="Project_Photo/Image_Converter.jpg" alt="Image Converter Project"></a></span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Image Converter</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm text-justify">A high-performance, client-side web application designed to convert, resize, and optimize images directly within the browser. This tool ensures user privacy by processing all data locally, eliminating the need for server-side uploads.</p>
+            <div class="flex gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">HTML</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">CSS</span>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project Items end -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="py-24">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h2 class="text-3xl font-bold mb-12 text-center reveal">Milestones & <span class="text-gradient">Awards</span></h2>
+      <div class="space-y-4">
+        <div class="glass p-6 rounded-2xl flex justify-between items-center reveal">
+          <div>
+            <h4 class="font-bold">Champion</h4>
+            <p class="text-sm text-slate-500"> BAIUST CSE Fall Fest X IUPC</p>
+          </div>
+          <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">2025</span>
+        </div>
+        <div class="glass p-6 rounded-2xl flex justify-between items-center reveal">
+          <div>
+            <h4 class="font-bold">2nd Runners Up</h4>
+            <p class="text-sm text-slate-500">BAIUST CSE Fest 2025 X Hackathon</p>
+          </div>
+          <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">2025</span>
+        </div>
+        <div class="glass p-6 rounded-2xl flex justify-between items-center reveal">
+          <div>
+            <h4 class="font-bold">1st Runners Up</h4>
+            <p class="text-sm text-slate-500">BAIUST CSE Fest 2025 X IUPC</p>
+          </div>
+          <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="py-12 mt-12 border-t border-slate-200 dark:border-slate-800">
+    <div class="container mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl font-bold mb-6">Ready to <span class="text-gradient">Collaborate?</span></h2>
+      <a href="mailto:ishtiakahmed2797@gmail.com" class="inline-block px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-indigo-600 transition-colors mb-12">Say Hello</a>
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+        <p>© <script>document.write(new Date().getFullYear())</script> Ishtiak Ahmed. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="https://www.linkedin.com/in/ishtiakahmed2797/" target="_blank" class="hover:text-primary transition-colors">LinkedIn</a>
+          <a href="https://github.com/ishtiakahmed-official" target="_blank" class="hover:text-primary transition-colors">GitHub</a>
+          <a href="mailto:ishtiakahmed2797@gmail.com" target="_blank" class="hover:text-primary transition-colors">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
